@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class EinfachEinfacheBewegung : MonoBehaviour
 
-{ 
-
+{
+    public GameObject Player; 
+    public GameObject projektile;
+    public GameObject projektileClone;
     public float movementSpeed = 0.5f;
     private Vector3 movevector;
 
@@ -34,7 +36,19 @@ public class EinfachEinfacheBewegung : MonoBehaviour
         {
             player.velocity = Vector2.zero;
         }
-          
+        easyShoot();
+        }
+        
+
+    void easyShoot()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            projektileClone = Instantiate(projektile, new Vector3(Player.transform.position.x, Player.transform.position.y+1f, 0), transform.rotation) as GameObject;
+
         }
     }
+
+
+}
 
